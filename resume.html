@@ -1,423 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Heet Gala - FullStack Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <title>Heet Gala - FullStack Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
 
-        body {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 62% 38%;
-            gap: 20px;
-            background: white;
-            font-size: 10px;
-        }
+    body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 60% 40%;
+      gap: 20px;
+      background: white;
+      font-size: 9px;
+    }
 
-        /* Add new styles for profile image */
-        .profile-image-container {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+    .profile-image-container {
+      text-align: center;
+      margin-bottom: 10px;
+    }
 
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50px;
-            object-fit: cover;
-            margin: 0 auto;
-            display: block;
-            background: rgba(255,255,255,0.1);
-            border: 2px solid rgba(255,255,255,0.2);
-        }
+    .profile-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50px;
+      object-fit: cover;
+      margin: 0 auto;
+      display: block;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
 
-        .left-column {
-            padding-right: 20px;
-        }
+    .right-column {
+      background: #006566;
+      color: white;
+      padding: 10px 15px;
+    }
 
-        .right-column {
-            background: #006566;
-            color: white;
-            padding: 20px;
-        }
+    .header {
+      margin-bottom: 20px;
+    }
 
-        .header {
-            margin-bottom: 30px;
-        }
+    .name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 3px;
+    }
 
-        .name {
-            font-size: 28px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-        }
+    .title {
+      font-size: 16px;
+      color: #4aa3df;
+      margin-bottom: 10px;
+    }
 
-        .title {
-            font-size: 18px;
-            color: #4aa3df;
-            margin-bottom: 15px;
-        }
+    .contact-info {
+      color: #666;
+      margin-bottom: 10px;
+      font-size: 11px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
 
-        .contact-info {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 14px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+    .contact-item i {
+      color: #4aa3df;
+      width: 14px;
+      text-align: center;
+    }
 
-        .contact-item i {
-            color: #4aa3df;
-            width: 16px;
-            text-align: center;
-        }
+    .contact-item a {
+      color: #4aa3df;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
 
-        .contact-item a {
-            color: #4aa3df;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
+    .contact-item a:hover {
+      color: #2980b9;
+    }
 
-        .contact-item a:hover {
-            color: #2980b9;
-        }
+    .section {
+      margin-bottom: 15px;
+    }
 
-        .location-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 5px;
-        }
+    .section-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
 
-        .section {
-            margin-bottom: 25px;
-        }
+    .right-section-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
 
-        .section-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
+    .company {
+      font-weight: bold;
+      color: #4aa3df;
+      margin-bottom: 2px;
+      font-size: 12px;
+    }
 
-        .right-section-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
+    .job-title {
+      font-weight: bold;
+      margin-bottom: 2px;
+      font-size: 12px;
+    }
 
-        .company {
-            font-weight: bold;
-            color: #4aa3df;
-            margin-bottom: 5px;
-        }
+    .date-location {
+      color: #666;
+      font-size: 11px;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+    }
 
-        .job-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
+    .right-column .date-location {
+      color: #eee;
+    }
 
-        .date-location {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-        }
+    ul {
+      list-style-type: none;
+      margin-left: 12px;
+      margin-bottom: 12px;
+    }
 
-        .right-column .date-location {
-            color: #eee;
-        }
+    li {
+      margin-bottom: 4px;
+      position: relative;
+      line-height: 1.3;
+      font-size: 11px;
+    }
 
-        ul {
-            list-style-type: none;
-            margin-left: 15px;
-            margin-bottom: 20px;
-        }
+    li::before {
+      content: "•";
+      position: absolute;
+      left: -12px;
+    }
 
-        li {
-            margin-bottom: 8px;
-            position: relative;
-            line-height: 1.4;
-        }
+    .achievement-item {
+      margin-bottom: 8px;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+    }
 
-        li::before {
-            content: "•";
-            position: absolute;
-            left: -15px;
-        }
+    .achievement-title {
+      font-weight: bold;
+      margin-bottom: 3px;
+      color: #fff;
+      font-size: 11px;
+    }
 
-        .achievement-item {
-            margin-bottom: 20px;
-            padding: 10px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 5px;
-        }
+    .achievement-description {
+      font-size: 10px;
+      color: #fff;
+    }
 
-        .achievement-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #fff;
-        }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+      margin-top: 8px;
+    }
 
-        .achievement-description {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #fff;
-        }
+    .skill-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 3px 8px;
+      border-radius: 15px;
+      font-size: 10px;
+    }
 
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
+    .project-item {
+      margin-bottom: 12px;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      font-size: 10px;
+    }
 
-        .skill-item {
-            background: rgba(255,255,255,0.1);
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 14px;
-        }
+    .project-title {
+      font-weight: bold;
+      margin-bottom: 3px;
+      font-size: 11px;
+    }
 
-        .project-item {
-            margin-bottom: 20px;
-            padding: 10px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 5px;
-        }
+    .job {
+      margin-bottom: 12px;
+    }
 
-        .project-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
+    p {
+      font-size: 11px;
+      line-height: 1.4;
+    }
 
-        @media print {
-            body {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .right-column {
-                background-color: #006566 !important;
-            }
-        }
-    </style>
+    .icon {
+      padding-left: 5px;
+      padding-right: 10px;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 12px 16px;
+      }
+
+      .right-column {
+        background-color: #006566 !important;
+      }
+
+      @page {
+        margin: 0;
+        size: A4;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="left-column">
-      <div class="header">
-        <h1 class="name">HEET GALA</h1>
-        <div class="title">FullStack Developer</div>
-        <div class="contact-info">
-            <div class="contact-item">
-                <i class="fa-solid fa-mobile-screen"></i>
-                <span>+91 7021648656</span>
-            </div>
-            <div class="contact-item">
-                <i class="fa-solid fa-envelope"></i>
-                <span>heitgala99@gmail.com</span>
-            </div>
-            <div class="contact-item">
-                <i class="fa-brands fa-linkedin"></i>
-                <a href="#" target="_blank">LinkedIn</a>
-            </div>
-            <div class="contact-item">
-                <i class="fa-brands fa-github"></i>
-                <a href="#" target="_blank">GitHub</a>
-            </div>
-            <div class="contact-item">
-              <i class="fa-solid fa-location-dot"></i>
-              <span>Mumbai, IND</span>
-          </div>
+  <div class="left-column">
+    <div class="header">
+      <h1 class="name">HEET GALA</h1>
+      <div class="title">FullStack Developer</div>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fa-solid fa-mobile-screen"></i>
+          <span>+91 7021648656</span>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <span>heetgala99@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <i class="fa-brands fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/heet-gala-030634191" target="_blank">LinkedIn</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-brands fa-github"></i>
+          <a href="https://github.com/heetgala99" target="_blank">GitHub</a>
         </div>
       </div>
-
-        <div class="section">
-            <h2 class="section-title">Summary</h2>
-            <p>Experienced Software Engineer with 3+ years in web and mobile application development. Proficient in architectural design, core framework development, and multi-environment deployments. Skilled in both independent and collaborative settings, adaptable to remote and on-site work. Passionate about AI, SaaS, and developer tools, with a strong focus on leveraging emerging technologies to solve real-world challenges.</p>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Professional Experience</h2>
-            
-            <div class="job">
-                <div class="job-title">Member Of Technical Staff - 3</div>
-                <div class="company">Nutanix</div>
-                <div class="date-location">
-                    <span>2024 - Present</span>
-                    <span>Bengaluru, India</span>
-                </div>
-                <ul>
-                    <li>Building scalable enterprise cloud solutions and leading the market as a premier benchmarking tool.</li>
-                    <li>Integrated Redux Toolkit Query & TypeScript for state management in micro-frontends.</li>
-                    <li>Developed REST APIs using Django Rest Framework and Sails.js (Node.js), with PostgreSQL as the primary database and Redis for caching and pub-sub messaging.</li>
-                    <li>Architected CASK, a plugin-driven micro-frontend platform, managing RBAC authorization with MongoDB, React, Webpack, and Node.js.</li>
-                    <li>Contributing to the Nutanix Learning University Mobile App using Flutter. First of it's kind in the Nutanix SaaS organization. Ensuring quality iOS and Android releases.</li>
-                    <li>Developed an AI-powered content converter for multi-modal text, video, image, and PPT transformations.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-title">Member Of Technical Staff - 2</div>
-                <div class="company">Nutanix</div>
-                <div class="date-location">
-                    <span>2022 - 2024</span>
-                    <span>Bengaluru, India</span>
-                </div>
-                <ul>
-                    <li>Performance benchmarking for private cloud environments (AHV, ESXi, Hyper-V) with multi-cloud deployment across on-prem, cloud, and Nutanix infrastructure.</li>
-                    <li>Built a report generation microservice in Node.js and Puppeteer, automating PDF creation, dynamic Table of Contents generation, hyperlinking, and pagination. Optimized concurrency with worker threads for improved scalability. Now a key XRay feature.</li>
-                    <li>Streamlined deployment with Docker, Kubernetes, Helm, CI/CD (GitLab, Jenkins), and Terraform, integrating real-time monitoring with Prometheus and Grafana.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-title">Member Of Technical Staff, Intern</div>
-                <div class="company">Nutanix</div>
-                <div class="date-location">
-                    <span>2021 - 2022</span>
-                    <span>Bengaluru, India</span>
-                </div>
-                <ul>
-                    <li>Contributed to XRay a benchmarking tool to evaluate workloads on custom hardware, measuring IOPS, Throughput, and Latency.</li>
-                    <li>Developed a real-time PDF preview system with dynamic dashboards and interactive software and hardware metrics.</li>
-                    <li>Engineered an ML-powered Renewal Engine to predict customer renewals and optimize ACV growth.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-title">Data Scientist Intern</div>
-                <div class="company">DXFactor</div>
-                <div class="date-location">
-                    <span>09/2020 - 12/2020</span>
-                    <span>Virginia, United States</span>
-                </div>
-                <ul>
-                    <li>DXFactor is a data-driven consulting firm that leverages analytics to optimize business growth for clients across various industries.</li>
-                    <li>Conducted EDA, data scraping, data cleaning, and transformation using Pandas, NumPy and Python.</li>
-                    <li>Automated data collection with Selenium and built visualizations using Matplotlib.</li>
-                    <li>Delivered data-driven insights through predictive modeling and trend analysis.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Education</h2>
-            <div class="education">
-                <div class="job-title">Bachelor of Engineering - BE, Electrical and Electronics Engineering and Masters of Science - MS. Chemistry</div>
-                <div class="company">Birla Institute of Technology and Science, Pilani Campus</div>
-                <div class="date-location">
-                    <span>2017 - 2022</span>
-                    <span>Rajasthan, IND</span>
-                </div>
-            </div>
-            <div class="education">
-                <div class="job-title">Science College</div>
-                <div class="company">PACE Science Jnr College</div>
-                <div class="date-location">
-                    <span>2015 - 2017</span>
-                    <span>Mumbai, India</span>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <div class="right-column">
-        <div class="profile-image-container">
-            <img src="./profile.png" alt="Profile Image" class="profile-image">
-        </div>
-        <div class="section">
-            <h2 class="right-section-title">Key Achievements</h2>
-            <div class="achievement-item">
-                <div class="achievement-title">Contributing in a $38M+ revenue</div>
-                <div class="achievement-description">Contributing to XRay with near to $38M+ closed ACV and 150+ won opportunities.</div>
-            </div>
-            <div class="achievement-item">
-                <div class="achievement-title">23% YoY increase in ACV billing</div>
-                <div class="achievement-description">Led Renewal Engine development, driving a 23% YoY increase.</div>
-            </div>
-            <div class="achievement-item">
-                <div class="achievement-title">Enhance User Experience</div>
-                <div class="achievement-description">Optimized APIs, cutting latency by 100%+ and improving user performance.</div>
-            </div>
-            <div class="achievement-item">
-                <div class="achievement-title">Micro-frontend Architecture</div>
-                <div class="achievement-description">Pioneered micro-frontend architecture as a company-wide framework, enabling cross-team collaboration.</div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="right-section-title">Skills</h2>
-            <div class="skills-list">
-                <span class="skill-item">React.js</span>
-                <span class="skill-item">React Native</span>
-                <span class="skill-item">Redux</span>
-                <span class="skill-item">RTK</span>
-                <span class="skill-item">TypeScript</span>
-                <span class="skill-item">Django</span>
-                <span class="skill-item">Sails.js</span>
-                <span class="skill-item">Flutter</span>
-                <span class="skill-item">PostgreSQL</span>
-                <span class="skill-item">Redis</span>
-                <span class="skill-item">MongoDB</span>
-                <span class="skill-item">Vite</span>
-                <span class="skill-item">GraphQL</span>
-                <span class="skill-item">Webpack</span>
-                <span class="skill-item">Node.js</span>
-                <span class="skill-item">Docker</span>
-                <span class="skill-item">Kubernetes</span>
-                <span class="skill-item">Helm</span>
-                <span class="skill-item">CI/CD</span>
-                <span class="skill-item">Jenkins</span>
-                <span class="skill-item">Terraform</span>
-                <span class="skill-item">Prometheus</span>
-                <span class="skill-item">Grafana</span>
-                <span class="skill-item">AI/ML</span>
-                <span class="skill-item">Python</span>
-                <span class="skill-item">Puppeteer</span>
-                <span class="skill-item">Prisma</span>
-                <span class="skill-item">Selenium</span>
-                <span class="skill-item">Pandas</span>
-                <span class="skill-item">NumPy</span>
-                <span class="skill-item">Matplotlib</span>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="right-section-title">Extra Projects</h2>
-            <div class="project-item">
-                <div class="project-title">📱 Paptech Mobile App</div>
-                <div>Developed a Flutter mobile app for Paptech with a Laravel backend, modernizing the admin panel with React and Vite.</div>
-            </div>
-            <div class="project-item">
-                <div class="project-title">💻 Reponsive Websites</div>
-                <div>Paptech and CA Rahul Gala, fully responsive websites, using React, Tailwind, and Material-UI.</div>
-            </div>
-            <div class="project-item">
-                <div class="project-title">🛠 Low Code - No Code apps</div>
-                <div>Inventory Management system for a bookstore using Retool with automated reporting and real-time stock updates.</div>
-            </div>
-        </div>
+    <div class="section">
+      <h2 class="section-title">Summary</h2>
+      <p>Experienced Software Engineer with 3+ years in web and mobile application development. Proficient in
+        architectural design, core framework development, and multi-environment deployments. Skilled in both independent
+        and collaborative settings, adaptable to remote and on-site work. Passionate about AI, SaaS, and developer
+        tools, with a strong focus on leveraging emerging technologies to solve real-world challenges.</p>
     </div>
+
+    <div class="section">
+      <h2 class="section-title">Professional Experience</h2>
+
+      <div class="job">
+        <div class="job-title">Member Of Technical Staff - 3</div>
+        <div class="date-location">
+          <div class="company">Nutanix</div>
+          <div>
+            <span>2024 - present</span>
+            <span>|</span>
+            <span>Bengaluru, India</span>
+          </div>
+        </div>
+        <ul>
+          <li>Building scalable enterprise cloud solutions and leading the market as a premier benchmarking tool.</li>
+          <li>Integrated Redux Toolkit Query & TypeScript for state management in micro-frontends.</li>
+          <li>Developed REST APIs using Django Rest Framework and Sails.js (Node.js), with PostgreSQL as the primary
+            database and Redis for caching and pub-sub messaging.</li>
+          <li>Architected CASK, a plugin-driven micro-frontend platform, managing RBAC authorization with MongoDB,
+            React, Webpack, and Node.js.</li>
+          <li>Contributed to the Nutanix Learning University Mobile App using Flutter. First of it's kind in the
+            Nutanix SaaS organization. Ensuring quality iOS and Android releases.</li>
+          <li>Developed an AI-powered content converter for multi-modal text, video, image, and PPT transformations.
+          </li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-title">Member Of Technical Staff - 2</div>
+        <div class="date-location">
+          <div class="company">Nutanix</div>
+          <div>
+            <span>2022 - 2024</span>
+            <span>|</span>
+            <span>Bengaluru, India</span>
+          </div>
+        </div>
+        <ul>
+          <li>Performance benchmarking for private cloud environments (AHV, ESXi, Hyper-V) with multi-cloud deployment
+            across on-prem, cloud, and Nutanix infrastructure.</li>
+          <li>Built a report generation microservice in Node.js and Puppeteer, automating PDF creation, dynamic Table of
+            Contents generation, hyperlinking, and pagination. Optimized concurrency with worker threads for improved
+            scalability.</li>
+          <li>Streamlined deployment with Docker, Kubernetes, Helm, CI/CD (GitLab, Jenkins), and Terraform, integrating
+            real-time monitoring with Prometheus and Grafana.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-title">Member Of Technical Staff, Intern</div>
+        <div class="date-location">
+          <div class="company">Nutanix</div>
+          <div>
+            <span>2021 - 2022</span>
+            <span>|</span>
+            <span>Bengaluru, India</span>
+          </div>
+        </div>
+        <ul>
+          <li>Contributed to XRay a benchmarking tool to evaluate workloads on custom hardware, measuring IOPS,
+            Throughput, and Latency.</li>
+          <li>Developed a real-time PDF preview system with dynamic dashboards and interactive software and hardware
+            metrics.</li>
+          <li>Engineered an ML-powered Renewal Engine to predict customer renewals and optimize ACV growth.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-title">Data Scientist Intern</div>
+        <div class="date-location">
+          <div class="company">DXFactor</div>
+          <div>
+            <span>Sept 2020 - Dec 2020</span>
+            <span>|</span>
+            <span>Remote</span>
+          </div>
+        </div>
+        <ul>
+          <li>DXFactor is a data-driven consulting firm that leverages analytics to optimize business growth for clients
+            across various industries.</li>
+          <li>Conducted EDA, data cleaning, and transformation using Pandas, NumPy.</li>
+          <li>Automated data collection with Selenium and built visualizations using Matplotlib.</li>
+          <li>Delivered data-driven insights through predictive modeling and trend analysis.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Education</h2>
+      <div class="education">
+        <div class="job-title">Bachelor of Engineering - BE, Electrical and Electronics Engineering and Masters of
+          Science - MS. Chemistry</div>
+        <div class="company">Birla Institute of Technology and Science, Pilani Campus</div>
+        <div class="date-location">
+          <span>2017 - 2022</span>
+          <span>Rajasthan, India</span>
+        </div>
+      </div>
+      <div class="education">
+        <div class="job-title">Science College</div>
+        <div class="company">PACE Junior Science College</div>
+        <div class="date-location">
+          <span>2015 - 2017</span>
+          <span>Mumbai, India</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-column">
+    <div class="profile-image-container">
+      <img src="./profile.png" alt="Profile Image" class="profile-image">
+    </div>
+    <div class="section">
+      <h2 class="right-section-title">Key Achievements</h2>
+      <div class="achievement-item">
+        <div class="achievement-title">Contributed in a $38M+ revenue</div>
+        <div class="achievement-description">Contributed to XRay application with near to $38M+ closed ACV and 150+ won
+          opportunities.</div>
+      </div>
+      <div class="achievement-item">
+        <div class="achievement-title">23% YoY increase in ACV billing</div>
+        <div class="achievement-description">Led Renewal Engine development, driving a 23% YoY increase.</div>
+      </div>
+      <div class="achievement-item">
+        <div class="achievement-title">Enhance User Experience</div>
+        <div class="achievement-description">Optimized APIs, cutting latency by 100%+ and improving user performance.
+        </div>
+      </div>
+      <div class="achievement-item">
+        <div class="achievement-title">Micro-frontend Architecture</div>
+        <div class="achievement-description">Pioneered micro-frontend architecture as a company-wide framework, enabling
+          cross-team collaboration.</div>
+      </div>
+      <div class="achievement-item">
+        <div class="achievement-title">Pioneered Mobile App</div>
+        <div class="achievement-description">Pioneering Nutanix's mobile team, ensuring high-quality releases.</div>
+      </div>
+      <div class="achievement-item">
+        <div class="achievement-title">Hackathons and Awards</div>
+        <div class="achievement-description">Won 3 hackathons, with projects in production, and the STAR Award.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="right-section-title">Skills</h2>
+      <div class="skills-list">
+        <span class="skill-item">React.js</span>
+        <span class="skill-item">React Native</span>
+        <span class="skill-item">Redux</span>
+        <span class="skill-item">TypeScript</span>
+        <span class="skill-item">RTK</span>
+        <span class="skill-item">Django</span>
+        <span class="skill-item">Sails.js</span>
+        <span class="skill-item">Flutter</span>
+        <span class="skill-item">PostgreSQL</span>
+        <span class="skill-item">Redis</span>
+        <span class="skill-item">MongoDB</span>
+        <span class="skill-item">Vite</span>
+        <span class="skill-item">GraphQL</span>
+        <span class="skill-item">Webpack</span>
+        <span class="skill-item">Node.js</span>
+        <span class="skill-item">Docker</span>
+        <span class="skill-item">Kubernetes</span>
+        <span class="skill-item">Helm</span>
+        <span class="skill-item">CI/CD</span>
+        <span class="skill-item">Jenkins</span>
+        <span class="skill-item">Terraform</span>
+        <span class="skill-item">Prometheus</span>
+        <span class="skill-item">Grafana</span>
+        <span class="skill-item">AI/ML</span>
+        <span class="skill-item">Python</span>
+        <span class="skill-item">Puppeteer</span>
+        <span class="skill-item">Prisma</span>
+        <span class="skill-item">Selenium</span>
+        <span class="skill-item">Pandas</span>
+        <span class="skill-item">NumPy</span>
+        <span class="skill-item">Matplotlib</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="right-section-title">Extra Projects</h2>
+      <div class="project-item">
+        <div class="project-title">
+          <i class="fas fa-mobile-alt icon"></i> Paptech Mobile App
+        </div>
+        <div>Developed a Flutter mobile app for Paptech with a Laravel backend, modernizing the admin panel with React
+          and Vite.</div>
+      </div>
+      <div class="project-item">
+        <div class="project-title">
+          <i class="fas fa-laptop-code icon"></i> Responsive Websites
+        </div>
+        <span>
+          <a href="https://paptechcorp.netlify.app" target="_blank" style="padding: 0px 2px; color: white;">
+            Paptech
+          </a>
+          <span>and</span>
+          <a href="https://rjgca.netlify.app/" target="_blank"
+            style="padding-left: 2px; padding-right: 0px; color: white">
+            RJGCA
+          </a>
+          <span>, fully responsive websites, using React, Tailwind, and Material-UI.</span>
+        </span>
+      </div>
+      <div class="project-item">
+        <div class="project-title">
+          <i class="fas fa-tools icon"></i> Low Code - No Code Application
+        </div>
+        <div>Inventory Management system for a bookstore using Retool with automated reporting and real-time stock
+          updates.</div>
+      </div>
+      <div class="project-item">
+        <div class="project-title">
+          <i class="fas fa-industry icon"></i> Supply Chain ERP
+        </div>
+        <div>Developed a real-time ERP system for manufacturing supply chains with Node.js, React, Prisma ORM, MySQL,
+          and Ant Design, ensuring process tracking, inventory management, and workflow automation.</div>
+      </div>
+    </div>
+
+  </div>
 </body>
+
 </html>
